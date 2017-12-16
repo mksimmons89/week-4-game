@@ -1,0 +1,21 @@
+body{
+   background-image: url("../images/hallway.jpg");
+   font-family: 'Gloria Hallelujah', cursive;
+
+}
+
+.card-img-top{
+  height: 180px;
+  width: 180px;
+}
+
+.jumbotron{
+  opacity: .7;
+  height: 200px;
+}
+
+span{
+  background-color: darkgrey;
+  color: purple;
+  font-size: 25px;
+}
