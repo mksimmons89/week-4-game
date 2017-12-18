@@ -11,8 +11,10 @@
     <link rel="stylesheet" type="text/css" href="./assets/css/reset.css">
     <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
     <!-- CDN for jquery -->
-<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+
     <title>Battle of the Labels</title>
+
   </head>
   <body>
 
@@ -26,12 +28,12 @@
 
 <br></br>
 
-<div class="container">
+<div class="container your-characters">
   <div class="row">
     <div class="col-sm-1">
     </div>
     <div class="col-sm-3">
-    <span>Your Characters:</span>
+    <span>Select your players!</span>
   </div>
 </div>
 </div>
@@ -47,7 +49,7 @@
             <img class="card-img-top available-character" src="assets/images/hipster.jpeg" alt="Card image cap">
               <div class="card-body">
               <p class="card-text">The Hipster</p>
-              <p id="hipster-health">health</p>
+              <p class="health">100</p>
           </div>
         </div>
     </div>
@@ -56,7 +58,7 @@
             <img class="card-img-top available-character" src="assets/images/goth.jpg" alt="Card image cap">
               <div class="card-body">
             <p class="card-text">The Goth</p>
-            <p id="goth-health">health</p>
+              <p class="health">120</p>
           </div>
         </div>
     </div>
@@ -65,7 +67,7 @@
           <img class="card-img-top available-character" src="assets/images/hippy.jpg" alt="Card image cap">
           <div class="card-body">
           <p class="card-text">The Hippy</p>
-          <p id="hippy-health">health</p>
+          <p class="health">90</p>
         </div>
       </div>
     </div>
@@ -74,7 +76,7 @@
           <img class="card-img-top available-character" src="assets/images/prep.jpg" alt="Card image cap">
           <div class="card-body">
             <p class="card-text">The Yuppie</p>
-            <p id="yuppie-health">health</p>
+          <p class="health">80</p>
           </div>
         </div>
     </div>
@@ -83,42 +85,59 @@
   </div>
 </div>
 
-<br><br/>
+<br></br>
 
 <div class="container">
 
-  <div id="bench" class="row">
+<div class="row" id="chosen-characters-containter">
+      <div class="col-sm-12">
+    <span>Your Characters</span>
+   </div>
+ </div>
 
-    <span id="enemies-available">Enemies Available to attack</span>
-  </div>
+ <br></br>
 
-<br><br/>
+  <div class="row" id="enemies-container">
+      <div class="col-sm-12">
+    <span>Enemies Available to Attack</span>
+   </div>
+ </div>
 
-  <div class="row" id="fighters">
+ <br></br>
+
+  <div class="row" id="fighter-container">
       <div class="col-sm-12">
     <span>Fight Section</span>
-  </div>
-    </div>
+   </div>
+ </div>
 
-<br><br/>
+
+<br></br>
 <!-- attack button -->
   <div class="row">
-    <button type="button" class="btn btn-primary attack">Attack!</button>
+    <button type="button" class="btn btn-primary" id="attack-button">Attack!</button>
   </div>
 <!-- end attack button -->
-<br><br/>
+<br></br>
 
-  <div class="row" id="mycharacter">
+  <div class="row" id="enemy-container">
     <div class="col-sm-12">
     <span>Defender</span>
   </div>
 </div>
+
+<br></br>
+
+<div class="row" id="message-container">
+  <div class="col-sm-12">
+</div>
 </div>
 
+
+
+</div>
+
+
+<script type="text/javascript" src="assets/javascript/game.js"></script>
   </body>
 </html>
-
-
-<!-- <div class = 'col-med-4'> -->
-  <!-- "" -->
-<!-- </div> -->
