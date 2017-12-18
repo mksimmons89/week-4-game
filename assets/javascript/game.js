@@ -9,7 +9,7 @@ var enemiesDead = 0;
 var gameOver = false;
 
 var character={};
-var defenders={};
+var enemies={};
 
 
 var Characters = {
@@ -54,18 +54,18 @@ function settingUpCharacter(chosenCharacter){
 
 // This function will initialize the enemy's value from the global object variables defined above
 function initializeEnemy(chosenEnemy) {
-  enemy.name = chosenEnemy.name;
-  enemy.health = chosenEnemy.health;
-  enemy.baseAttackPower = chosenEnemy.baseAttackPower;
-  enemy.atk = chosenEnemy.atk;
-  enemy.chosen = chosenEnemy.chosen;
+  enemies.name = chosenEnemy.name;
+  enemies.health = chosenEnemy.health;
+  enemies.baseAttackPower = chosenEnemy.baseAttackPower;
+  enemies.atk = chosenEnemy.atk;
+  enemies.chosen = chosenEnemy.chosen;
 }
 
 // This function will move the remaining characters to the enemies section
 function movingEnemiesToContainer(){
 $('.available-character').removeClass('available-character').addClass("enemy-characters");
 $('#enemies-available').append($(".enemy-characters"));
-$('.enemy-characters').css("background-color", 'red');
+// $('.enemy-characters').css("background-color", 'red');
 
 }
 
@@ -77,7 +77,7 @@ $(document).ready(function() {
 
 		if(playerSelected === false){
 
-			settingUpCharacter(character.hippy);
+			settingUpCharacter(Characters.hippy);
 			playerSelected = true;
 
 
@@ -108,15 +108,15 @@ $(document).ready(function() {
       playerSelected = true;
 
       //display chosen player
-      $('#goth').removeClass('.available-character').addClass('chosen-characters-container');
+      $('#goth').removeClass('available-character').addClass('chosen-characters-container');
       $('#chosen-characters-container').append(this);
 
       movingEnemiesToContainer()
     } else if(playerSelected === true && enemySelected === false){
       if($('#goth').hasClass('enemy-characters')){
 
-        settingUpDefenders(Characters.goth);
-        defenderSelected = true;
+        initializeEnemy(Characters.goth);
+        enemySelected = true;
 
         $('#goth').removeClass('enemy-characters').addClass('enemy-character');
         $('#enemy-container').append(this);
@@ -156,7 +156,7 @@ $(document).ready(function() {
       settingUpCharacter(Characters.hipster)
       playerSelected= true;
 
-      $('#hipster').removeClass('.available-character').addClass('chosen-characters-container');
+      $('#hipster').removeClass('available-character').addClass('chosen-characters-container');
       $('#chosen-characters-container').append(this);
 
       movingEnemiesToContainer()
@@ -182,16 +182,16 @@ $(document).ready(function() {
 
       // if defender are being attacked by character chosen
 
-      enemy.health = enemy.health - character.atk;
-      $($(`#${enemy.name} p.health`)[0]).html(enemy.health);
+      enemies.health = enemies.health - character.atk;
+      $($(`#${enemies.name} p.health`)[0]).html(enemies.health);
 
 
-      console.log(enemy.health);
+      console.log(enemies.health);
       console.log(playerSelected);
 
 
       character.atk = character.atk + character.baseAttackPower;
-      $('#message-container').html('You have attacked ' + character.name + ' with ' + character.atk + ' points.');
+      $('#message-container').html('You have attacked ' + Characters.name + ' with ' + Characters.atk + ' points.');
       console.log(character.health);
 
       character.health = character.health - enemy.atk;
@@ -202,7 +202,7 @@ $(document).ready(function() {
         if(character.health <= 0){
         $('#message-container').html('You have died!');
       } else if (enemy.health <= 0){
-        enemiesDefeated ++;
+        enemiesDead ++;
         enemySelected = false;
 
         $('#enemy-container').empty();
@@ -210,7 +210,7 @@ $(document).ready(function() {
       //  		$('#enemies-container').removeClass('enemy-characters');
       // $('#defender-container').append(this);
 
-        if(enemiesDefeated === 3){
+        if(enemiesDead === 3){
           gameOver= true;
           $('#message-container').html('You have won!');
           return;

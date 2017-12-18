@@ -1,6 +1,7 @@
 body{
    background-image: url("../images/hallway.jpg");
    font-family: 'Gloria Hallelujah', cursive;
+   margin: 40px;
 
 }
 
@@ -14,8 +15,19 @@ body{
   height: 200px;
 }
 
-span{
+.available-character{
+display: inline-block;
   background-color: darkgrey;
   color: purple;
   font-size: 25px;
 }
+
+h2, span{
+  background-color: darkgrey;
+  color: purple;
+  font-size: 25px;
+}
+
+#attack-button{
+background-color: red;
+color: black;

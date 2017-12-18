@@ -28,114 +28,77 @@
 
 <br></br>
 
-<div class="container your-characters">
-  <div class="row">
-    <div class="col-sm-1">
-    </div>
-    <div class="col-sm-3">
-    <span>Select your players!</span>
+<div class="main-container">
+
+
+  <div class="your-characters">
+    <span>Select Your Character</span>
+
+    <br></br>
+
+    <span class="your-characters-image available-character" id="hipster">
+      <p>Hipster</p>
+      <img src="assets/images/hipster.jpeg" alt="Hipster" width="200px">
+      <p class= "health">100</p>
+    </span>
+
+    <span class="your-characters-image available-character" id="goth">
+      <p>Goth</p>
+      <img src="assets/images/goth.jpg" alt="Goth" width="200px">
+      <p class= "health">120</p>
+    </span>
+
+    <span class= "your-characters-image available-character" id="hippy">
+      <p>Hippy</p>
+      <img src="assets/images/hippy.jpg" alt="Hippy" width="200px">
+      <p class= "health">90</p>
+    </span>
+
+    <span class= "your-characters-image available-character" id="yuppie">
+      <p>Yuppie</p>
+      <img src="assets/images/prep.jpg" alt="Yuppie" width="200px">
+      <p class= "health">80</p>
+    </span>
   </div>
-</div>
-</div>
 
 <br></br>
-<!-- bootstrap cards displaying the charracters -->
-    <div class="container" id="characters-available">
-  <div class="row">
-        <div class="col-sm-2">
-        </div>
-    <div class="col-sm-2">
-        <div class="card character" id="hipster" style="width: 20rem;">
-            <img class="card-img-top available-character" src="assets/images/hipster.jpeg" alt="Card image cap">
-              <div class="card-body">
-              <p class="card-text">The Hipster</p>
-              <p class="health">100</p>
-          </div>
-        </div>
-    </div>
-    <div class="col-sm-2">
-          <div class="card character" id="goth" style="width: 20rem;">
-            <img class="card-img-top available-character" src="assets/images/goth.jpg" alt="Card image cap">
-              <div class="card-body">
-            <p class="card-text">The Goth</p>
-              <p class="health">120</p>
-          </div>
-        </div>
-    </div>
-    <div class="col-sm-2">
-      <div class="card character" id="hippy" style="width: 20rem;">
-          <img class="card-img-top available-character" src="assets/images/hippy.jpg" alt="Card image cap">
-          <div class="card-body">
-          <p class="card-text">The Hippy</p>
-          <p class="health">90</p>
-        </div>
+
+  <div id="chosen-characters-container">
+      <span>Your Characters</span>
+  </div>
+
+<br></br>
+
+  <div id="enemies-container">
+      <span>Enemies Available To Attack</span>
+  </div>
+
+  <br></br>
+
+  <div id="fight-container">
+      <span>Fight Section</span>
+      <div class="button-container">
+  </div>
+
+  <br></br>
+
+  <button type="button" id="attack-button">Attack!</button>
       </div>
-    </div>
-    <div class="col-sm-2">
-        <div class="card character" id="yuppie" style="width: 20rem;">
-          <img class="card-img-top available-character" src="assets/images/prep.jpg" alt="Card image cap">
-          <div class="card-body">
-            <p class="card-text">The Yuppie</p>
-          <p class="health">80</p>
-          </div>
-        </div>
-    </div>
-        <div class="col-sm-2">
-      </div>
   </div>
-</div>
 
-<br></br>
+    <br></br>
 
-<div class="container">
-
-<div class="row" id="chosen-characters-containter">
-      <div class="col-sm-12">
-    <span>Your Characters</span>
-   </div>
- </div>
-
- <br></br>
-
-  <div class="row" id="enemies-container">
-      <div class="col-sm-12">
-    <span>Enemies Available to Attack</span>
-   </div>
- </div>
-
- <br></br>
-
-  <div class="row" id="fighter-container">
-      <div class="col-sm-12">
-    <span>Fight Section</span>
-   </div>
- </div>
-
-
-<br></br>
-<!-- attack button -->
-  <div class="row">
-    <button type="button" class="btn btn-primary" id="attack-button">Attack!</button>
+  <div id="enemy-container">
+      <span>Defender</span>
   </div>
-<!-- end attack button -->
-<br></br>
 
-  <div class="row" id="enemy-container">
-    <div class="col-sm-12">
-    <span>Defender</span>
-  </div>
+  <br></br>
+
+  <div id="message-container">
 </div>
 
-<br></br>
-
-<div class="row" id="message-container">
-  <div class="col-sm-12">
-</div>
 </div>
 
-
-
-</div>
 
 
 <script type="text/javascript" src="assets/javascript/game.js"></script>
