@@ -1,6 +1,4 @@
-// Do an on click function for each picture (give a class)
-// give it an attribute so you can figure out what you're clicking on..
-// make classes for each card...ex: hipster and make sure that it shows up in on click function in the place of card. Obv. do 4 time.s
+
 
 var playerSelected = false;
 var enemySelected = false;
@@ -10,6 +8,7 @@ var gameOver = false;
 
 var character={};
 var enemies={};
+
 
 
 var Characters = {
@@ -44,6 +43,8 @@ hippy: {
 
 };
 
+
+// this makes the character equal chose character
 function settingUpCharacter(chosenCharacter){
 	character.name = chosenCharacter.name;
 	character.health = chosenCharacter.health;
@@ -51,6 +52,7 @@ function settingUpCharacter(chosenCharacter){
 	character.atk = chosenCharacter.atk;
 	character.counterAttack = chosenCharacter.counterAttack;
 }
+
 
 // This function will initialize the enemy's value from the global object variables defined above
 function initializeEnemy(chosenEnemy) {
@@ -61,6 +63,8 @@ function initializeEnemy(chosenEnemy) {
   enemies.chosen = chosenEnemy.chosen;
 }
 
+
+
 // This function will move the remaining characters to the enemies section
 function movingEnemiesToContainer(){
 $('.available-character').removeClass('available-character').addClass("enemy-characters");
@@ -68,49 +72,56 @@ $('#enemies-available').append($(".enemy-characters"));
 // $('.enemy-characters').css("background-color", 'red');
 
 }
-
+// dom..
 $(document).ready(function() {
 
 
 	$('#hippy').on('click', function(){
-		console.log("hippy has been selected");
+		// console.log("hippy has been selected");
 
-		if(playerSelected === false){
+// this shows how the player can actually be selected (when the funciton is carried out)
+    if(playerSelected === false){
 
 			settingUpCharacter(Characters.hippy);
 			playerSelected = true;
 
 
-      //display chosen player
+      //display selected player putting in chosen character bucket
       $("#hippy").removeClass("available-character").addClass("chosen-characters-container");
       $("#chosen-characters-container").append(this);
 
+// if a player has been selected, but not the enememy yet, we're gonna do enemy to container function
       movingEnemiesToContainer()
-
     } else if(playerSelected === true && enemySelected === false){
       if($("#hippy").hasClass("enemy-characters")){
 
         initializeEnemy(Characters.hippy);
         enemySelected = true;
 
+// may possibly be redundant..look at the remove class and add class of enemy character
         $("#hippy").removeClass("enemy-characters").addClass("enemy-character");
         $("#enemy-container").append(this);
         }
        }
       });
 
+
+
+// now we do some thing for goth
       $("#goth").on('click', function(){
-      console.log("goth has been selected");
+      // console.log("goth has been selected");
 
+
+// how to select a player
       if(playerSelected === false){
-
       settingUpCharacter(Characters.goth);
       playerSelected = true;
 
-      //display chosen player
+  //display selected character
       $('#goth').removeClass('available-character').addClass('chosen-characters-container');
       $('#chosen-characters-container').append(this);
 
+//display enemy
       movingEnemiesToContainer()
     } else if(playerSelected === true && enemySelected === false){
       if($('#goth').hasClass('enemy-characters')){
@@ -124,18 +135,23 @@ $(document).ready(function() {
        }
       });
 
-
+// And another character
       $('#yuppie').on('click', function(){
-      console.log("yuppie has been selected");
+      // console.log("yuppie has been selected");
 
       if(playerSelected === false){
 
+//how to select your player
       settingUpCharacter(Characters.yuppie);
       playerSelected= true;
 
+
+//putting him into you selected character container
       $('#yuppie').removeClass('.available-character').addClass('chosen-characters-container');
       $('#chosen-characters-container').append(this);
 
+
+// enemies to container
       movingEnemiesToContainer()
     }else if(playerSelected === true && enemySelected === false){
       if($('#yuppie').hasClass('enemy-characters')){
@@ -149,9 +165,12 @@ $(document).ready(function() {
        }
       });
 
-      $("#hipster").on('click', function(){
-      console.log("a hippy has been selected");
 
+//and another character
+      $("#hipster").on('click', function(){
+      // console.log("a hippy has been selected");
+
+// once again, that if you havent did the player seleected function hasnt happened you can select a char. and it will be a true statement.
       if(playerSelected === false){
       settingUpCharacter(Characters.hipster)
       playerSelected= true;
@@ -183,20 +202,22 @@ $(document).ready(function() {
       // if defender are being attacked by character chosen
 
       enemies.health = enemies.health - character.atk;
+// get clairification on below. have someone break this down
       $($(`#${enemies.name} p.health`)[0]).html(enemies.health);
 
 
       console.log(enemies.health);
       console.log(playerSelected);
 
-
+// sets up dom for different messages to be displayed below based on your fight
       character.atk = character.atk + character.baseAttackPower;
       $('#message-container').html('You have attacked ' + Characters.name + ' with ' + Characters.atk + ' points.');
       console.log(character.health);
 
       character.health = character.health - enemy.atk;
       $($(`#${character.name} p.health`)[0]).html(character.health);
-      console.log()
+      // $("#" + enemies.name + " p.health")[0].html()
+      // console.log()
 
 
         if(character.health <= 0){
